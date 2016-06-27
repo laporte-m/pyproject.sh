@@ -7,17 +7,16 @@
 #   $ ./pyproject.sh myproject
 #
 
-# Assign your user name to USER, or specify alternate DEV directory for projects
-USER="mll"
-DEV="/home/$USER/dev"
+# Projects directory
+DEV="/home/mll/dev"
 
 # Location of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 NAME=$1
 PRJDIR="$DEV/$NAME"
-LIC=${2:-GPLv3}  # use GPLv3 by default
-COMMIT="Project structure (pyproject.sh)"
+LIC=${2:-GPLv3}  # GPLv3 by default
+COMMIT="Project structure (github.com/laporte-m/pyproject.sh)"
 
 mkdir -p "$PRJDIR/"
 cd "$PRJDIR"
@@ -25,7 +24,7 @@ cd "$PRJDIR"
 pyvenv venv
 
 touch "README.md"
-cp "$DIR/template/$LIC.txt" "$PRJDIR/LICENSE.txt"
+cp "$DIR/template/licenses/$LIC.txt" "$PRJDIR/LICENSE.txt"
 mkdir "$NAME/"
 touch "$NAME/__init__.py"
 
